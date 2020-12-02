@@ -1,0 +1,19 @@
+<form method="POST" action="/users" accept-charset="UTF-8">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <table>
+        <tr>
+            <td><label for="user_name">Username: </label></td>
+            <td><input type="text" name="user[:username]" id="user_name"></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email: </label></td>
+            <td><input type="text" name="user[:email]" id="email"></td>
+        </tr>
+        <tr>
+            <td><label for="password">Password: </label></td>
+            <td><input type="password" name="user[:password]" id="password"></td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Submit">
+</form>
