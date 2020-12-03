@@ -1,4 +1,19 @@
-
+<ul>
+    <li><%= link_to 'Create a user', new_user_path %></li>
+</ul>
+<table>
 <% @user.each do |u|%>
-    <h1> <%= u.username%> </h1>
+            <tr>
+                <td>
+                    <h3 style="margin: 0; padding: 0"> <%= u.username%> </h3>
+                </td>
+                <td>
+                    <li style="list-style: none"><%= link_to 'Update', edit_user_path(u) %></li>
+                </td>
+                <td>
+                    <li style="list-style: none"><%= link_to 'Delete', user_path(u), method: :delete, data: {confirm: "Are you sure you want to delete"} %></li>
+                </td>
+            </tr>
+    
 <% end %>
+</table>

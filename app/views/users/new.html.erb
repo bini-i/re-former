@@ -28,19 +28,48 @@
     <%# <%= submit_tag("Submit")%> 
 <%# <% end %> 
 
-  <%= form_for(@user) do |f| %>
-     <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    
-    <%= f.label :username, 'Your username here' %> 
-    <%= f.text_field :username %>
+  <%= form_for(@user) do |f| %>    
+    <table>
+    <tr>
+        <td>
+            <%= f.label :username, 'Your username here' %> 
+        </td>
+        <td>
+            <%= f.text_field :username %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <li style="list-style: none; color: red"><%= @user.errors.full_messages[0] %></li>
+        </td>
+    </tr>
 
-    <%= f.label :email %>
-    <%= f.text_field :email, placeholder:" email@example.com" %>
-
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-
+    <tr>
+        <td>
+            <%= f.label :email %>
+        </td>
+        <td>
+            <%= f.text_field :email, placeholder:" email@example.com" %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <li style="list-style: none; color: red"><%= @user.errors.full_messages[1] %></li>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <%= f.label :password %>
+        </td>
+        <td>
+            <%= f.password_field :password %>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <li style="list-style: none; color: red"><%= @user.errors.full_messages[2] %></li>
+        </td>
+    </tr>
+    </table>
     <%= f.submit :submit %>
 <% end %>
