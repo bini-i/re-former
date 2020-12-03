@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+  def index
+    @user = User.all
+  end
+
   def show
     @user = User.find_by(id: params[:id])
   end
@@ -21,13 +25,9 @@ class UsersController < ApplicationController
 
   def update 
     @user = User.find(params[:id])
-    if @user.update(user_params)
-      redirect_to user_path
-    else
-      render 'edit'
-    end
-    # @user.update_attributes(user_params)  
-    # @user.save
+    @user.update(user_params)
+    @user.save
+    redirect_to user_path(@user.id)
   end
 
   def edit
