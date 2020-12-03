@@ -29,6 +29,10 @@
 <%# <% end %> 
 
   <%= form_for(@user) do |f| %>
+     <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    
     <%= f.label :username, 'Your username here' %> 
     <%= f.text_field :username %>
 
